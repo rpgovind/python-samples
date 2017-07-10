@@ -1,18 +1,23 @@
-{% extends "layout.html"} 
 
-{% block content %}
-<div class="hero-section">
-    <div class="container">
-        <div class="section-content">
-            <h2>Discover places near you.</h2>
-            <a href="" class="btn-primary">Sign up</a>
-            <a href="" class="btn-secondary">Learn More</a>
-        </div>
-        <div class="section-device">
-            <img src="static/img/device.png" alt="">
-        </div>
-        <div class="clearfix"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping List - Python Flask app</title>
+</head>
+<body>
+    <h1>Shopping List1</h1>
+    <ul>
+        {%for item in items%}
+        <li>{{item}} <small><a href="{{url_for('remove_item', name=item)}}">[Remove]</a></small></li>
+        {%endfor%}
+    </ul>
+    <form  method="POST">
+        <input type="text" class="text" name="item">
+        <input type="submit" class="submit" value="Add to List" />
+    </form>
+</body>
+</html>
 
-    </div>
-</div>
-{% endblock %}
